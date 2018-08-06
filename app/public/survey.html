@@ -8,14 +8,35 @@
     <title>Survey</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container">
-        <h2 class="col-12">1 = totally disagree 10 = totally agree</h2>
+        <h1>Survey!</h1>
+
         <form action="#" id="survey-form">
             <div class="form-group">
-                <p class="label mt-5 ">I like video games.</p>
+                <label for="name">Name
+                    <span id="name-warning" class="emsg alert-danger hidden">You must enter a name!</span>
+                </label>
+                <input type="text" id="name">
+            </div>
+            <!-- I am not sure how to upload pictures! and I am unsure if I can get this done in time, so I will comment this part out until I have time to figure it out. -->
+            <!-- <div class="form-group">
+            <label for="picture">Picture</label>
+            <input type="file" id="picture">
+        </div> -->
+
+            <h3 class="col-12">1 = totally disagree 10 = totally agree</h3>
+            <div class="form-group">
+                <p class="label mt-5 ">I like video games.
+                    <span class="emsg alert-danger hidden" id="q1-warning">You must answer this question!</span>
+                </p>
                 <div class="row ">
                     <p class="text-center col-1">1</p>
                     <p class="text-center col-1">2</p>
@@ -29,20 +50,22 @@
                     <p class="text-center col-1">10</p>
                 </div>
                 <div class="row">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
-                    <input type="radio" name="q1" class="form-control col-1">
+                    <input type="radio" name="q1" class="form-control col-1" value="1">
+                    <input type="radio" name="q1" class="form-control col-1" value="2">
+                    <input type="radio" name="q1" class="form-control col-1" value="3">
+                    <input type="radio" name="q1" class="form-control col-1" value="4">
+                    <input type="radio" name="q1" class="form-control col-1" value="5">
+                    <input type="radio" name="q1" class="form-control col-1" value="6">
+                    <input type="radio" name="q1" class="form-control col-1" value="7">
+                    <input type="radio" name="q1" class="form-control col-1" value="8">
+                    <input type="radio" name="q1" class="form-control col-1" value="9">
+                    <input type="radio" name="q1" class="form-control col-1" value="10">
                 </div>
             </div>
             <div class="form-group">
-                <p class="label mt-5 ">I like programming.</p>
+                <p class="label mt-5 ">I like programming.
+                    <span class="emsg alert-danger hidden" id="q2-warning">You must answer this question!</span>
+                </p>
                 <div class="row ">
                     <p class="text-center col-1">1</p>
                     <p class="text-center col-1">2</p>
@@ -56,20 +79,22 @@
                     <p class="text-center col-1">10</p>
                 </div>
                 <div class="row">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
-                    <input type="radio" name="q2" class="form-control col-1">
+                    <input type="radio" name="q2" class="form-control col-1" value="1">
+                    <input type="radio" name="q2" class="form-control col-1" value="2">
+                    <input type="radio" name="q2" class="form-control col-1" value="3">
+                    <input type="radio" name="q2" class="form-control col-1" value="4">
+                    <input type="radio" name="q2" class="form-control col-1" value="5">
+                    <input type="radio" name="q2" class="form-control col-1" value="6">
+                    <input type="radio" name="q2" class="form-control col-1" value="7">
+                    <input type="radio" name="q2" class="form-control col-1" value="8">
+                    <input type="radio" name="q2" class="form-control col-1" value="9">
+                    <input type="radio" name="q2" class="form-control col-1" value="10">
                 </div>
             </div>
             <div class="form-group">
-                <p class="label mt-5">I like sports.</p>
+                <p class="label mt-5">I like sports.
+                    <span class="emsg alert-danger hidden" id="q3-warning">You must answer this question!</span>
+                </p>
                 <div class="row ">
                     <p class="text-center col-1">1</p>
                     <p class="text-center col-1">2</p>
@@ -83,20 +108,22 @@
                     <p class="text-center col-1">10</p>
                 </div>
                 <div class="row">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
-                    <input type="radio" name="q3" class="form-control col-1">
+                    <input type="radio" name="q3" class="form-control col-1" value="1">
+                    <input type="radio" name="q3" class="form-control col-1" value="2">
+                    <input type="radio" name="q3" class="form-control col-1" value="3">
+                    <input type="radio" name="q3" class="form-control col-1" value="4">
+                    <input type="radio" name="q3" class="form-control col-1" value="5">
+                    <input type="radio" name="q3" class="form-control col-1" value="6">
+                    <input type="radio" name="q3" class="form-control col-1" value="7">
+                    <input type="radio" name="q3" class="form-control col-1" value="8">
+                    <input type="radio" name="q3" class="form-control col-1" value="9">
+                    <input type="radio" name="q3" class="form-control col-1" value="10">
                 </div>
             </div>
             <div class="form-group">
-                <p class="label mt-5">I like being in large groups.</p>
+                <p class="label mt-5">I like being in large groups.
+                    <span class="emsg alert-danger hidden" id="q4-warning">You must answer this question!</span>
+                </p>
                 <div class="row ">
                     <p class="text-center col-1">1</p>
                     <p class="text-center col-1">2</p>
@@ -110,20 +137,22 @@
                     <p class="text-center col-1">10</p>
                 </div>
                 <div class="row">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
-                    <input type="radio" name="q4" class="form-control col-1">
+                    <input type="radio" name="q4" class="form-control col-1" value="1">
+                    <input type="radio" name="q4" class="form-control col-1" value="2">
+                    <input type="radio" name="q4" class="form-control col-1" value="3">
+                    <input type="radio" name="q4" class="form-control col-1" value="4">
+                    <input type="radio" name="q4" class="form-control col-1" value="5">
+                    <input type="radio" name="q4" class="form-control col-1" value="6">
+                    <input type="radio" name="q4" class="form-control col-1" value="7">
+                    <input type="radio" name="q4" class="form-control col-1" value="8">
+                    <input type="radio" name="q4" class="form-control col-1" value="9">
+                    <input type="radio" name="q4" class="form-control col-1" value="10">
                 </div>
             </div>
             <div class="form-group">
-                <p class="label mt-5">I like reading books</p>
+                <p class="label mt-5">I like reading books
+                    <span class="emsg alert-danger hidden" id="q5-warning">You must answer this question!</span>
+                </p>
                 <div class="row ">
                     <p class="text-center col-1">1</p>
                     <p class="text-center col-1">2</p>
@@ -137,20 +166,22 @@
                     <p class="text-center col-1">10</p>
                 </div>
                 <div class="row">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
-                    <input type="radio" name="q5" class="form-control col-1">
+                    <input type="radio" name="q5" class="form-control col-1" value="1">
+                    <input type="radio" name="q5" class="form-control col-1" value="2">
+                    <input type="radio" name="q5" class="form-control col-1" value="3">
+                    <input type="radio" name="q5" class="form-control col-1" value="4">
+                    <input type="radio" name="q5" class="form-control col-1" value="5">
+                    <input type="radio" name="q5" class="form-control col-1" value="6">
+                    <input type="radio" name="q5" class="form-control col-1" value="7">
+                    <input type="radio" name="q5" class="form-control col-1" value="8">
+                    <input type="radio" name="q5" class="form-control col-1" value="9">
+                    <input type="radio" name="q5" class="form-control col-1" value="10">
                 </div>
             </div>
             <div class="form-group">
-                <p class="label mt-5">I like public speaking</p>
+                <p class="label mt-5">I like public speaking
+                    <span class="emsg alert-danger hidden" id="q6-warning">You must answer this question!</span>
+                </p>
                 <div class="row ">
                     <p class="text-center col-1">1</p>
                     <p class="text-center col-1">2</p>
@@ -164,16 +195,16 @@
                     <p class="text-center col-1">10</p>
                 </div>
                 <div class="row">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
-                    <input type="radio" name="q6" class="form-control col-1">
+                    <input type="radio" name="q6" class="form-control col-1" value="1">
+                    <input type="radio" name="q6" class="form-control col-1" value="2">
+                    <input type="radio" name="q6" class="form-control col-1" value="3">
+                    <input type="radio" name="q6" class="form-control col-1" value="4">
+                    <input type="radio" name="q6" class="form-control col-1" value="5">
+                    <input type="radio" name="q6" class="form-control col-1" value="6">
+                    <input type="radio" name="q6" class="form-control col-1" value="7">
+                    <input type="radio" name="q6" class="form-control col-1" value="8">
+                    <input type="radio" name="q6" class="form-control col-1" value="9">
+                    <input type="radio" name="q6" class="form-control col-1" value="10">
                 </div>
             </div>
             <div class="form-group">
@@ -181,12 +212,54 @@
             </div>
         </form>
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
         crossorigin="anonymous"></script>
+    <script>
+
+        //document.getElementById("picture").accept = "image/*"
+        $("#survey-form").on("submit", () => {
+            event.preventDefault();
+            var name = $("#name").val().trim();
+            //var picture = $("#picture").val();
+            var q1 = parseInt($("input[name=q1]:checked").val())
+            var q2 = parseInt($("input[name=q2]:checked").val())
+            var q3 = parseInt($("input[name=q3]:checked").val())
+            var q4 = parseInt($("input[name=q4]:checked").val())
+            var q5 = parseInt($("input[name=q5]:checked").val())
+            var q6 = parseInt($("input[name=q6]:checked").val())
+            var answers = [q1, q2, q3, q4, q5, q6]
+            //console.log(typeof picture)
+            //var ext = getExtension(picture)
+
+            if (name === "") {
+                // put logic for notifying that they need to put in a valid name 
+
+                $("#name-warning").removeClass("hidden").show();
+                return
+            }
+
+
+            for (var i = 0; i < answers.length; i++) {
+                if (answers[i] !== answers[i]) {
+                    $("#q" + (i + 1) + "-warning").removeClass("hidden").show();
+                    return
+                }
+            }
+            var friend = {
+                name: name,
+                scores: answers
+            }
+            // put in post for this.
+            $.post("/api", friend, function (data) {
+                if (data) {
+                    console.log(data);
+                }
+            })
+        })</script>
 </body>
 
 </html>
