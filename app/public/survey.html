@@ -211,6 +211,27 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
+        <!-- this is the start of our modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">This is your closest match</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <img src="" alt="" id="friend-shower"> -->
+                        <h2 id="friend-name"></h2>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
@@ -218,48 +239,55 @@
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
         crossorigin="anonymous"></script>
-    <script>
+    <div class="modal" tabindex="-1" role="dialog">
+        <script>
+            var modal = $("#modal")
+            // $('#myModal').on('shown.bs.modal', function () {
+            //   $('#myInput').trigger('focus')
+            // })
+            //document.getElementById("picture").accept = "image/*"
+            $("#survey-form").on("submit", () => {
+                event.preventDefault();
+                var name = $("#name").val().trim();
+                //var picture = $("#picture").val();
+                var q1 = parseInt($("input[name=q1]:checked").val())
+                var q2 = parseInt($("input[name=q2]:checked").val())
+                var q3 = parseInt($("input[name=q3]:checked").val())
+                var q4 = parseInt($("input[name=q4]:checked").val())
+                var q5 = parseInt($("input[name=q5]:checked").val())
+                var q6 = parseInt($("input[name=q6]:checked").val())
+                var answers = [q1, q2, q3, q4, q5, q6]
+                //console.log(typeof picture)
+                //var ext = getExtension(picture)
 
-        //document.getElementById("picture").accept = "image/*"
-        $("#survey-form").on("submit", () => {
-            event.preventDefault();
-            var name = $("#name").val().trim();
-            //var picture = $("#picture").val();
-            var q1 = parseInt($("input[name=q1]:checked").val())
-            var q2 = parseInt($("input[name=q2]:checked").val())
-            var q3 = parseInt($("input[name=q3]:checked").val())
-            var q4 = parseInt($("input[name=q4]:checked").val())
-            var q5 = parseInt($("input[name=q5]:checked").val())
-            var q6 = parseInt($("input[name=q6]:checked").val())
-            var answers = [q1, q2, q3, q4, q5, q6]
-            //console.log(typeof picture)
-            //var ext = getExtension(picture)
+                if (name === "") {
+                    // put logic for notifying that they need to put in a valid name 
 
-            if (name === "") {
-                // put logic for notifying that they need to put in a valid name 
-
-                $("#name-warning").removeClass("hidden").show();
-                return
-            }
-
-
-            for (var i = 0; i < answers.length; i++) {
-                if (answers[i] !== answers[i]) {
-                    $("#q" + (i + 1) + "-warning").removeClass("hidden").show();
+                    $("#name-warning").removeClass("hidden").show();
                     return
                 }
-            }
-            var friend = {
-                name: name,
-                scores: answers
-            }
-            // put in post for this.
-            $.post("/api", friend, function (data) {
-                if (data) {
-                    console.log(data);
+
+
+                for (var i = 0; i < answers.length; i++) {
+                    if (answers[i] !== answers[i]) {
+                        $("#q" + (i + 1) + "-warning").removeClass("hidden").show();
+                        return
+                    }
                 }
-            })
-        })</script>
+                var friend = {
+                    name: name,
+                    scores: answers
+                }
+                // put in post for this.
+                $.post("/api", friend, function (data) {
+                    if (data) {
+                        console.log(data);
+                        // here is where we will show the nearest friend!
+                        $("#friend-name").text(data.name)
+                        modal.modal("toggle");
+                    }
+                })
+            })</script>
 </body>
 
 </html>

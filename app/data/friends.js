@@ -8,10 +8,11 @@ possibleFriends = [
 function checkFriends(me, friendArr) {
     var closestFriend
     var closestDifference
+    console.log(friendArr)
     friendArr.forEach((friend) => {
         if (friend !== me) {
-            var diff = me.calculateDifferences(friend);
-            if (closestDifference === undefined || diff < closestDifference) {
+            var diff = calculateDifferences(me, friend);
+            if ((closestDifference === undefined || diff < closestDifference) && friend.name.toLowerCase() !== me.name.toLowerCase()) {
                 closestDifference = diff;
                 closestFriend = friend;
             }
@@ -21,6 +22,7 @@ function checkFriends(me, friendArr) {
 }
 function calculateDifferences(me, friend) {
     var differenceScore = 0
+    console.log(me.scores)
     me.scores.forEach(function (myscore, i) {
         var fScore = friend.scores[i];
         if (myscore > fScore) {
