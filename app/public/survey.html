@@ -27,10 +27,10 @@
                 <input type="text" id="name">
             </div>
             <!-- I am not sure how to upload pictures! and I am unsure if I can get this done in time, so I will comment this part out until I have time to figure it out. -->
-            <!-- <div class="form-group">
-            <label for="picture">Picture</label>
-            <input type="file" id="picture">
-        </div> -->
+            <div class="form-group">
+                <label for="picture">Picture URL<span id="picture-warning" class="emsg alert-danger hidden">You must enter a valid URL!</span></label>
+                <input type="text" id="picture" placeholder="picture.url.com">
+            </div>
 
             <h3 class="col-12">1 = totally disagree 10 = totally agree</h3>
             <div class="form-group">
@@ -218,6 +218,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">This is your closest match</h5>
+                        <img id="picture" src="https://checol70.github.io/responsive-portfolio/assets/images/Profile-Pic.png" alt="Picture of nearest friend">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -241,6 +242,10 @@
         crossorigin="anonymous"></script>
     <div class="modal" tabindex="-1" role="dialog">
         <script>
+
+            function checkURL(url) {
+    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}
             var modal = $("#modal")
             // $('#myModal').on('shown.bs.modal', function () {
             //   $('#myInput').trigger('focus')
@@ -249,7 +254,7 @@
             $("#survey-form").on("submit", () => {
                 event.preventDefault();
                 var name = $("#name").val().trim();
-                //var picture = $("#picture").val();
+                var picture = $("#picture").val();
                 var q1 = parseInt($("input[name=q1]:checked").val())
                 var q2 = parseInt($("input[name=q2]:checked").val())
                 var q3 = parseInt($("input[name=q3]:checked").val())
@@ -266,7 +271,10 @@
                     $("#name-warning").removeClass("hidden").show();
                     return
                 }
-
+                if(!picture.checkURL()){
+                    $("#picture-warning").removeClass("hidden").show();
+                    return
+                }
 
                 for (var i = 0; i < answers.length; i++) {
                     if (answers[i] !== answers[i]) {
@@ -276,6 +284,7 @@
                 }
                 var friend = {
                     name: name,
+                    picture: picture,
                     scores: answers
                 }
                 // put in post for this.
@@ -283,6 +292,7 @@
                     if (data) {
                         console.log(data);
                         // here is where we will show the nearest friend!
+                        $("#picture").attr("src", data.picture)
                         $("#friend-name").text(data.name)
                         modal.modal("toggle");
                     }

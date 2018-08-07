@@ -1,8 +1,6 @@
 
 possibleFriends = [
-    { name: "Juan", scores: [3, 2, 3, 2, 1, 4] },
-    { name: "Colton", scores: [10, 9, 10, 8, 7, 9] },
-    { name: "Osten", scores: [3, 3, 4, 2, 1, 4] }
+    { name: "Colton", picture:"https://checol70.github.io/responsive-portfolio/assets/images/Profile-Pic.png", scores: [10, 9, 10, 8, 7, 9] }
 ]
 
 function checkFriends(me, friendArr) {
