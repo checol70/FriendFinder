@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 
 var apiRoutes = require("./app/routing/apiRoutes")(app)
 var htmlRoutes = require("./app/routing/htmlRoutes")(app)
-
+console.log("hello world");
 app.listen(PORT, function(){
     console.log("server listening on port: "+ PORT);
 })
